@@ -1,4 +1,4 @@
-# Install HASimulator and Get Public Data
+# Environment & Data
 
 This page is for participants who are setting up HA-VLN for the first time.
 
@@ -98,13 +98,14 @@ When this step is complete, you should have:
 - the public dataset prepared under `Data/`
 - enough runtime support to begin developing your own agent
 
-## What To Do If You Plan To Use the Docker Challenge Runtime
+## What To Do If You Plan To Use the Docker Challenge Workflow
 
-If your goal is local validation against the current official challenge runtime, the next step after basic installation is not submission packaging yet. First make sure your own method can run against the HA-VLN environment, then continue with:
+If your goal is local validation against the current challenge workflow, the next step after basic installation is not submission packaging yet. First make sure your own method can run against the HA-VLN environment, then continue with:
 
 - [Develop Your Agent](develop_agent.md)
 - [Test Your Agent](test_agent.md)
-- [Challenge Getting Started](../challenge/getting_started.md)
+- [How To Participate](../challenge/overview.md)
+- [Agent Package And Local Validation](../challenge/agent_package_validation.md)
 
 ## Next Step
 

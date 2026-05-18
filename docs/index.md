@@ -1,50 +1,45 @@
 # HA-VLN Participant Documentation
 
-HA-VLN provides two things to challenge participants:
+HA-VLN provides the simulator stack, public data, and challenge workflow for human-aware vision-language navigation.
 
-- `HASimulator`, the simulator stack for human-aware vision-language navigation
-- the public HA-VLN data package, including the human-populated navigation data needed for development and validation
+This documentation has two main paths.
 
-If you are a participant, you usually only need to answer three questions:
+## Use the HA-VLN Environment
 
-1. How do I install `HASimulator` and obtain the public data?
-2. Which APIs can I call when building my own agent?
-3. After my agent is ready, how do I test it?
+Use these pages if you want to install HA-VLN, prepare data, and build an agent against the environment.
 
-This documentation is organized around exactly those three tasks.
+1. [Environment & Data](participant/install_and_data.md)
+2. [Develop Your Agent](participant/develop_agent.md)
+3. [Test Your Agent](participant/test_agent.md)
 
-## Recommended Reading Order
+Reference pages for environment development:
 
-### 1. Install HASimulator and Prepare Data
-Start here if you are setting up the environment for the first time.
+- [Dependencies](quick_start/dependencies.md)
+- [Installation Steps](quick_start/installation.md)
+- [Data Download](quick_start/data.md)
+- [Agent Integration Notes](quick_start/integration.md)
+- [Simulator and metric APIs](#reference-material)
 
-- [Install HASimulator and Get Public Data](participant/install_and_data.md)
+## Join the Challenge
 
-### 2. Develop Your Agent with HASimulator APIs
-Read this when you already have the environment running and want to build your own method.
+Use these pages if you want to submit to the HA-VLN challenge.
 
-- [Develop Your Agent](participant/develop_agent.md)
+1. [How To Participate](challenge/overview.md)
+2. [Action Sequence Format](challenge/action_sequence_format.md)
+3. [Agent Package And Local Validation](challenge/agent_package_validation.md)
 
-### 3. Test Your Agent
-Read this after your agent can run and you want to validate it on the public workflow.
+The challenge has two phases:
 
-- [Test Your Agent](participant/test_agent.md)
+- Phase 1 submits an `actions.json` action sequence file.
+- Phase 2 submits an executable package mounted at `/app/agent`; `run.sh` writes the action sequence file.
 
-## Using the Current Docker Challenge Runtime
-
-If you are validating against the current executable challenge workflow, the most relevant next pages are:
-
-- [Challenge Overview](challenge/overview.md)
-- [Challenge Getting Started](challenge/getting_started.md)
-- [Challenge Agent Integration Guide](challenge/integration_guide.md)
-- [Challenge Submission Format](challenge/submission_format.md)
-
-Use these pages when you need the current mounted-path contract, the official runner path under `/app/agent`, the current adapter entry through `CHALLENGE_AGENT`, or the Docker-based local validation flow.
+Challenge homepage: [Codabench](https://www.codabench.org/).
 
 ## Reference Material
 
 If you need more detail, the reference pages are still available:
 
-- installation details: [Dependencies](quick_start/dependencies.md), [Installation Steps](quick_start/installation.md), [Data Download](quick_start/data.md)
-- integration details for local method development outside the Docker challenge runtime: [Agent Integration Notes](quick_start/integration.md)
-- simulator and metric APIs: [Human State](api/human_state.md), [Scene Updates](api/scene_updates.md), [Collision Checks](api/collision_checks.md), [Evaluation Metrics](api/evaluation_metrics.md)
+- [Human State](api/human_state.md)
+- [Scene Updates](api/scene_updates.md)
+- [Collision Checks](api/collision_checks.md)
+- [Evaluation Metrics](api/evaluation_metrics.md)

@@ -1,18 +1,7 @@
 # Quick Start (Modern GPU Adapted Version)
 
-The original repository was designed for Python 3.7 and CUDA 11.1, which are incompatible with modern hardware like the NVIDIA H100 (sm_90 architecture). The following steps address dependency conflicts, deprecated functions, and compilation issues to successfully run the project on modern GPUs using Python 3.8 and PyTorch 2.0+.
+This guide targets a Python 3.8 and CUDA 11.8 stack that works on modern hardware such as the NVIDIA H100 (sm_90 architecture). The following steps address dependency conflicts, deprecated functions, and compilation issues so the project can run successfully on modern GPUs with PyTorch 2.0+.
 
-<!-- ## 1. Create the Environment & Install PyTorch
-
-Create a clean Python 3.8 environment and install a PyTorch version that natively supports CUDA 11.8 (required for H100 compatibility).
-
-```bash
-conda create -n havln python=3.8 -y
-conda activate havln
-
-# Install H100 compatible PyTorch and Torchvision
-pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --index-url https://download.pytorch.org/whl/cu118
-``` -->
 
 ## 1. Create the Environment & Install Compilers
 
@@ -121,7 +110,7 @@ sed -i 's/spaces.Discrete(0)/spaces.Discrete(4)/g' habitat-lab/habitat/tasks/vln
 
 ## 7. Download Datasets and Weights
 
-Follow the original procedure for dataset extraction. Note the modified extraction step for DD-PPO models to prevent directory nesting errors.
+Follow the dataset extraction procedure below. Note the modified extraction step for DD-PPO models to prevent directory nesting errors.
 
 ```bash
 # 1. Download and extract Matterport3D Dataset (Requires download_mp.py)
@@ -139,11 +128,11 @@ unzip -j ddppo-models.zip "data/ddppo-models/*" -d Data/ddppo-models/
 rm ddppo-models.zip
 ```
 
-*(Note: Ensure Human-Scene Fusion and NavMesh settings are configured as per the original `env.md` Steps 8 and 10).*
+*(Note: Ensure Human-Scene Fusion assets and NavMesh-related settings are configured correctly for your local data layout before training or evaluation.)*
 
 ## 8. Setup GPU & Run 
 
-Before running training or inference, inject the CUDA library paths and enforce EGL headless rendering on the GPU.
+Before running training or inference, inject the CUDA library paths and set GPU-related environment variables in a more portable way. The defaults below keep the current single-GPU behavior, while still allowing you to override the visible GPUs or render device without editing the document.
 
 ```bash
 cd agent
@@ -153,8 +142,17 @@ export CUDA_HOME=$CONDA_PREFIX
 export PATH=$CUDA_HOME/bin:$PATH
 export LD_LIBRARY_PATH=$CUDA_HOME/lib:$LD_LIBRARY_PATH
 
-# Enforce EGL Headless rendering on GPU 0
-export EGL_DEVICE_ID=0
+# GPU selection defaults
+# Keep a single GPU visible by default; override as needed, for example:
+#   export HAVLN_CUDA_VISIBLE_DEVICES=0,1
+# To keep all GPUs visible, skip the export below.
+export CUDA_VISIBLE_DEVICES=${HAVLN_CUDA_VISIBLE_DEVICES:-0}
+
+# Render on the first visible GPU by default.
+# If you want a different render GPU among the visible devices, override for example:
+#   export HAVLN_EGL_DEVICE_ID=1
+export EGL_DEVICE_ID=${HAVLN_EGL_DEVICE_ID:-0}
+export DISPLAY=""
 
 # Training
 python run.py --exp-config config/cma_pm_da_aug_tune.yaml --run-type train
@@ -191,9 +189,14 @@ sed -i 's/typedef unsigned __int128/\/\/ typedef unsigned __int128/g' $SYSROOT_T
 **Cause:** The NVIDIA H100 is a pure datacenter compute card with no display controllers. Sometimes, standard EGL struggles to find a valid rendering device if the environment isn't strictly isolated.
 **Solution:** Ensure you are using the `headless` build of `habitat-sim` as instructed in Step 2. Additionally, strictly define the GPU and display environments before running your agent:
 ```bash
-export CUDA_VISIBLE_DEVICES=0
-export EGL_DEVICE_ID=0
+export CUDA_VISIBLE_DEVICES=${HAVLN_CUDA_VISIBLE_DEVICES:-0}
+export EGL_DEVICE_ID=${HAVLN_EGL_DEVICE_ID:-0}
 export DISPLAY=""
+```
+If you need a different setup, override the helper variables before running, for example:
+```bash
+export HAVLN_CUDA_VISIBLE_DEVICES=1,2
+export HAVLN_EGL_DEVICE_ID=0
 ```
 
 ### Q4: SSL Certificate errors when downloading DD-PPO weights

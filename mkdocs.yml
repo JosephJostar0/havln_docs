@@ -5,6 +5,21 @@ repo_name: F1y1113/HA-VLN
 theme:
   name: material
   language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
 
 plugins: []
 
@@ -21,20 +36,19 @@ extra_javascript:
 
 nav:
   - Start Here: index.md
-  - 1. Install HASimulator And Get Data: participant/install_and_data.md
-  - 2. Develop Your Agent: participant/develop_agent.md
-  - 3. Test Your Agent: participant/test_agent.md
+  - Environment & Data: participant/install_and_data.md
+  - Develop Your Agent: participant/develop_agent.md
+  - Test Your Agent: participant/test_agent.md
+  - Agent Integration Notes: quick_start/integration.md
   - Reference:
       - Dependencies: quick_start/dependencies.md
       - Installation Steps: quick_start/installation.md
       - Data Download: quick_start/data.md
-      - Agent Integration Notes: quick_start/integration.md
       - Human State Queries: api/human_state.md
       - Dynamic Scene Updates: api/scene_updates.md
       - Collision Checks: api/collision_checks.md
       - Evaluation Metrics: api/evaluation_metrics.md
-  - Challenge Runtime:
-      - Overview: challenge/overview.md
-      - Getting Started: challenge/getting_started.md
-      - Agent Integration: challenge/integration_guide.md
-      - Submission Format: challenge/submission_format.md
+  - Challenge Workflow:
+      - How To Participate: challenge/overview.md
+      - Action Sequence Format: challenge/action_sequence_format.md
+      - Agent Package And Local Validation: challenge/agent_package_validation.md

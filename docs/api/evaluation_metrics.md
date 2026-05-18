@@ -1,6 +1,6 @@
 # Evaluation Metrics
 
-This document explains the evaluation metrics used in the current HA-VLN evaluator. Understanding these metrics will help you interpret your agent's behavior during development and validation.
+This document explains the evaluation metrics used by the current HA-VLN action replay scorer. Understanding these metrics will help you interpret your agent's behavior during development and validation.
 
 ## Overview
 
@@ -15,22 +15,26 @@ The evaluator also keeps the underlying environment `success` signal. In the cur
 
 ## Current Evaluator Outputs
 
-At the episode level, the current evaluator writes fields such as:
+In the current output schema, `episode_metrics.json` contains one row per replayed episode. Rows include the primitive action trace and metric fields such as:
 
 - `success`
-- `goal_distance`
-- `collision_count`
-- `baseline_collision_count`
-- `adjusted_collision_count`
-- `collision_indicator`
-- `strict_success`
+- `distance_to_goal`
+- `steps_taken`
+- `actions`
+- `path_length`
+- `collisions`
+- `spl`
+- `ndtw`
+- `sdtw`
+- `TCR`
+- `CR`
+- `SR`
 
-At the summary level, the current evaluator exposes two closely related summary views:
+At the summary level, the current evaluator writes:
 
-- `score_summary.json`, which writes `SR`, `TCR`, `CR`, and `NE`
-- `stats_ckpt_0_<split>.json`, which keeps the raw aggregated metric keys, including `distance_to_goal`
+- `score_summary.json`, which stores aggregated metrics under `metrics`
 
-In the current implementation, `NE` is the challenge-facing summary name for the aggregated `distance_to_goal` value.
+In the current schema, the canonical metric key is `distance_to_goal`. `NE` remains a useful shorthand for discussion.
 
 ## Metric Definitions
 
@@ -92,7 +96,7 @@ Interpretation:
 
 **Units**: meters
 
-In the current evaluator implementation, `NE` is the summary name for the aggregated environment metric `distance_to_goal`.
+In the current evaluator implementation, the canonical metric key is `distance_to_goal`. `NE` remains a useful shorthand for discussion, but the JSON summary now keeps the underlying metric name.
 
 ```text
 NE = Σ(distance_to_goal at episode end) / (Total episodes)
@@ -160,12 +164,12 @@ Useful questions to ask are:
 
 ## Notes
 
-- this page follows the current code path in `HASimulator/metric.py` and `agent/eval.py`
-- exact final challenge ranking and reporting details may still be refined
+- this page follows the current metric code in `HASimulator/metric.py` and the challenge action replay scorer
+- final scoring is based on replaying `actions.json` in the official CE environment
 - if future evaluator code changes the exported metric definitions, the documentation should be updated to match the code
 
 ## Further Reading
 
-- [Challenge Overview](../challenge/overview.md)
-- [Agent Integration Guide](../challenge/integration_guide.md)
+- [How To Participate](../challenge/overview.md)
+- [Action Sequence Format](../challenge/action_sequence_format.md)
 - [Collision Checks](collision_checks.md)

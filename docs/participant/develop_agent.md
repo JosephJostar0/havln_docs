@@ -8,7 +8,7 @@ The main idea is straightforward:
 - you provide your own navigation agent
 - your agent interacts with the HA-VLN environment through the simulator/task configuration and available APIs
 
-The repository `agent/` directory should be treated as reference code and baseline material, not as a required starting point. Participants are free to build their own agent code as long as it is compatible with the HA-VLN environment and the challenge runtime interface.
+The repository `agent/` directory is reference code and baseline material. You may build your own agent code as long as final challenge scoring can replay the produced HA-VLN-CE primitive actions.
 
 ## What Participants Usually Need from the Simulator
 
@@ -32,6 +32,36 @@ In particular, check:
 - `SIMULATOR.ADD_HUMAN`
 - `SIMULATOR.ALLOW_SLIDING`
 - measurement fields used during evaluation
+
+## Basic Environment Interaction
+
+HA-VLN follows the usual Habitat-style episode loop: create the environment, call `reset()`, choose one primitive action at a time, and stop when the episode is done.
+
+The current HA-VLN-CE challenge primitive actions are:
+
+- `STOP`
+- `MOVE_FORWARD`
+- `TURN_LEFT`
+- `TURN_RIGHT`
+
+A minimal loop has this shape:
+
+```python
+observations = env.reset()
+done = False
+
+while not done:
+    action = agent.act(observations)
+    observations, reward, done, info = env.step(action)
+
+metrics = info
+```
+
+`observations` contains the configured sensor outputs for the current episode. Physical simulator sensors are observations such as RGB and depth. Task sensors are navigation-task fields such as instruction or progress-related signals. Choose the observation set in your local task config according to what your method uses.
+
+Oracle-style task sensors, such as shortest-path or oracle-progress sensors, are useful for debugging and some baselines. Treat them as privileged signals when choosing challenge-facing inputs.
+
+The `info` dictionary contains episode metrics after each step. At the end of an episode, use it to inspect success, distance, collision-aware measurements, and other configured metrics. For metric details, see [Evaluation Metrics](../api/evaluation_metrics.md).
 
 ## API Categories You Will Likely Use
 
@@ -70,17 +100,18 @@ A practical participant workflow is:
 - HA-VLN is not limited to one specific agent architecture
 - participants are expected to develop their own agents
 - the repository `agent/` directory is optional reference material rather than required submission code
-- the important requirement is compatibility with the HA-VLN environment and evaluation workflow
+- the important challenge requirement is compatibility with the HA-VLN environment and the primitive action contract
 
 If you need low-level integration details such as wrapper synchronization, provided text resources, or metric injection, read:
 
 - [Agent Integration Notes](../quick_start/integration.md)
 
-If your eventual goal is the current Docker challenge workflow, treat this page as the method-development step in a local environment and then continue to the challenge runtime pages after your method runs locally. The executable challenge contract itself is defined by the challenge pages, not by this local-development guide.
+If your eventual goal is the current Docker challenge workflow, treat this page as the method-development step in a local environment. After your method runs locally, continue to the challenge pages and make sure your method can export `actions.json`.
 
 ## Next Step
 
 After your agent can run inside HA-VLN, move on to:
 
 - [Test Your Agent](test_agent.md)
-- [Challenge Getting Started](../challenge/getting_started.md)
+- [Action Sequence Format](../challenge/action_sequence_format.md)
+- [Agent Package And Local Validation](../challenge/agent_package_validation.md)
