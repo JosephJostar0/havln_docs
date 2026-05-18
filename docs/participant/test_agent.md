@@ -41,7 +41,7 @@ Because HA-VLN is human-aware, test not only navigation success but also collisi
 After your method writes `/app/result/actions.json`, run:
 
 ```bash
-python /app/official_scoring/eval_offline.py \
+havln-score \
   --exp-config /app/official_scoring/config/challenge_submission.yaml \
   --actions-path /app/result/actions.json \
   --output-dir /app/result \

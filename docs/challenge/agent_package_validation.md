@@ -69,7 +69,7 @@ For local validation, the Docker workflow mounts:
 Pull the official image:
 
 ```bash
-docker pull ghcr.io/josephjostar0/havln-eval-image:latest
+docker pull ghcr.io/josephjostar0/havln-eval-image:v0.4
 ```
 
 Create a local compose file from the repository template:
@@ -85,6 +85,11 @@ docker compose up -d
 docker compose exec evaluator bash
 ```
 
+Inside the container, use the official helper commands:
+
+- `havln-score` runs the trusted action replay scorer from `/app/official_scoring`.
+- `havln-demo --max-steps 60` runs a headless simulator smoke test against `/app/Data`.
+
 ## Local Validation
 
 ### Phase 1: Replay an Existing Action File
@@ -98,7 +103,7 @@ Place or mount the action file at:
 Replay it:
 
 ```bash
-python /app/official_scoring/eval_offline.py \
+havln-score \
   --exp-config /app/official_scoring/config/challenge_submission.yaml \
   --actions-path /app/result/actions.json \
   --output-dir /app/result \
@@ -123,7 +128,7 @@ ls /app/result/actions.json
 Then replay it:
 
 ```bash
-python /app/official_scoring/eval_offline.py \
+havln-score \
   --exp-config /app/official_scoring/config/challenge_submission.yaml \
   --actions-path /app/result/actions.json \
   --output-dir /app/result \

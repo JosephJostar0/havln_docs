@@ -112,7 +112,7 @@ To replay a local action file with the official scorer, mount or copy it to a co
 Then run:
 
 ```bash
-python /app/official_scoring/eval_offline.py \
+havln-score \
   --exp-config /app/official_scoring/config/challenge_submission.yaml \
   --actions-path /app/result/actions.json \
   --output-dir /app/result \
