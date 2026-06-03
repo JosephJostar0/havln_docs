@@ -1,7 +1,5 @@
 site_name: HA-VLN Docs
 site_description: Documentation for the HA-VLN human-aware navigation dataset and environments
-repo_url: https://github.com/F1y1113/HA-VLN
-repo_name: F1y1113/HA-VLN
 theme:
   name: material
   language: en
