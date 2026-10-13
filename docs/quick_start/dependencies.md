@@ -1,6 +1,6 @@
 # Dependencies
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This page outlines the system-level and library prerequisites for running HA-VLN.
 

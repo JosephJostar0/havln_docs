@@ -1,6 +1,6 @@
 # HA-VLN Challenge: Agent Integration Guide
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This guide explains how to integrate your Vision-and-Language Navigation (VLN) agent with the HA-VLN environment to participate in the RoboWorld 2026 Track 2 Challenge.
 
@@ -158,4 +158,4 @@ Submit `submission.zip` to the [RoboWorld 2026 Track 2 CodaBench Competition](ht
 - [Participant Kit (roboworld2026-track2)](https://github.com/JostarXiong/roboworld2026-track2)
 - [Submission Format Specification](submission_format.md)
 - [Evaluation Metrics & Scoring Formula](../api/evaluation_metrics.md)
-- [HA-VLN GitHub Repository](https://github.com/JostarXiong/HA-VLN)
+- [HA-VLN GitHub Repository](https://github.com/UWMILab/HA-VLN)

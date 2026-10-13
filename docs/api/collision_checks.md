@@ -1,6 +1,6 @@
 ## Collision Checks
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This module provides finer-grained collision traceability than binary collision flags, with emphasis on separating human collisions from environment collisions and enabling strict evaluation.
 

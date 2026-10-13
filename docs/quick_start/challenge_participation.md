@@ -1,6 +1,6 @@
 # Challenge Participation
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This guide provides a quick overview of how to participate in the RoboWorld 2026 Track 2 (HA-VLN) Challenge. For full details, see the [Challenge Overview](../challenge/overview.md) and [Submission Format](../challenge/submission_format.md).
 

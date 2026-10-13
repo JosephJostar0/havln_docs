@@ -1,6 +1,6 @@
 ## Agent Integration
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 The agent sits between the environment layer and API layer, making this page the bridge from runnable setup to custom integration.
 

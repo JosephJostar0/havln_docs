@@ -1,6 +1,6 @@
 # Submission Format Specification
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This document specifies the official format required for the RoboWorld 2026 Track 2 (HA-VLN) Challenge submissions.
 

@@ -1,6 +1,6 @@
 # Data Download
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This page explains how to acquire and prepare all datasets, scene meshes, and model weights required for HA-VLN.
 

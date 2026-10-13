@@ -1,6 +1,6 @@
 # HA-VLN Challenge: Getting Started
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This guide provides a step-by-step walkthrough for setting up your environment, acquiring data, recording action sequences with your agent, and submitting to the RoboWorld 2026 Track 2 Challenge.
 

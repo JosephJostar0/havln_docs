@@ -1,7 +1,7 @@
 site_name: HA-VLN Docs
 site_description: Vision-Language Navigation Documentation
-repo_url: https://github.com/JostarXiong/HA-VLN
-repo_name: JostarXiong/HA-VLN
+repo_url: https://github.com/UWMILab/HA-VLN
+repo_name: UWMILab/HA-VLN
 theme:
   name: material
   language: en

@@ -1,6 +1,6 @@
 # Installation Steps
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 Choose between the pre-built **Docker container** (recommended for quick evaluation without dependency compilation) or a **Native Conda** environment (Python 3.8 + CUDA 11.8).
 
@@ -22,7 +22,7 @@ docker pull "$IMAGE"
 Clone the repository and mount it to inspect the environment or run interactive commands:
 
 ```bash
-git clone https://github.com/JostarXiong/HA-VLN.git
+git clone https://github.com/UWMILab/HA-VLN.git
 cd HA-VLN
 
 DATA_DIR="/absolute/path/to/Data"
@@ -52,7 +52,7 @@ This stack is adapted for modern GPUs (RTX 30/40 series, A100, H100) using Pytho
 ### Step 1: Base Environment & Habitat-Sim
 
 ```bash
-git clone https://github.com/JostarXiong/HA-VLN.git
+git clone https://github.com/UWMILab/HA-VLN.git
 cd HA-VLN
 export HA_VLN_ROOT="$(pwd)"
 

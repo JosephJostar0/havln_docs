@@ -1,6 +1,6 @@
 # Evaluation Metrics & Challenge Score
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This document explains the evaluation metrics used in the HA-VLN benchmark and the official scoring formula used in the RoboWorld 2026 Track 2 Challenge.
 
@@ -94,4 +94,4 @@ Organizer re-evaluation of the public CMA validation checkpoint produced:
 - [RoboWorld 2026 Track 2 CodaBench](https://www.codabench.org/competitions/18135/)
 - [Challenge Overview](../challenge/overview.md)
 - [Submission Format Specification](../challenge/submission_format.md)
-- [HA-VLN GitHub Repository](https://github.com/JostarXiong/HA-VLN)
+- [HA-VLN GitHub Repository](https://github.com/UWMILab/HA-VLN)

@@ -1,6 +1,6 @@
 # HA-VLN Challenge: Overview
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 The Human-Aware Vision-and-Language Navigation (HA-VLN) Challenge (RoboWorld 2026 Track 2) evaluates an embodied agent's ability to navigate in dynamic human-populated indoor environments while following natural language instructions.
 
@@ -94,7 +94,7 @@ Planar-only policies (using only the first four actions) are fully valid and sup
 
 - **CodaBench Challenge**: [RoboWorld 2026 Track 2 Competition](https://www.codabench.org/competitions/18135/)
 - **Participant Starter Kit**: [GitHub - roboworld2026-track2](https://github.com/JostarXiong/roboworld2026-track2)
-- **HA-VLN Codebase**: [GitHub - JostarXiong/HA-VLN](https://github.com/JostarXiong/HA-VLN)
+- **HA-VLN Codebase**: [GitHub - UWMILab/HA-VLN](https://github.com/UWMILab/HA-VLN)
 - **Hugging Face Data**: [fly1113/HA-VLN](https://huggingface.co/datasets/fly1113/HA-VLN)
 - **Detailed Specifications**:
   - [Getting Started Guide](getting_started.md)

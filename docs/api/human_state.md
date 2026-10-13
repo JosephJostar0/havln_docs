@@ -1,6 +1,6 @@
 ## Human State Queries
 
-Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
+Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
 This section provides APIs for querying dynamic human states during navigation. Typical use cases include safety-aware rewards, interaction policies, and behavior analysis.
 
