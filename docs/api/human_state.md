@@ -1,19 +1,12 @@
 ## Human State Queries
 
-Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
+Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
 
 This section provides APIs for querying dynamic human states during navigation. Typical use cases include safety-aware rewards, interaction policies, and behavior analysis.
 
-**Simulator-state warning:** The direct distances, angles, and global human
-coordinates below are privileged simulator state. They can be useful for
-debugging and controlled experiments, but are not ordinary egocentric sensor
-observations. Check the rules of any downstream benchmark before using them as
-policy inputs.
-
 ### distance_to_human
 
-- Purpose: Returns privileged distance and relative-angle diagnostics for
-  visible humans.
+- Purpose: Returns distance and relative angle between the agent and visible humans.
 - Prerequisite: Enable `DISTANCE_TO_HUMAN` in task measurements.
 - Return format: `[{"distance": float, "angle": float}, ...]`.
 
@@ -29,8 +22,7 @@ if "distance_to_human" in info:
 
 ### _human_posisions
 
-- Purpose: Directly reads global absolute human coordinates and rotations, not
-  limited by the agent FoV.
+- Purpose: Directly reads global absolute human coordinates and rotations, not limited by the agent FoV.
 - Prerequisite: `ADD_HUMAN: True` and an initialized HAVLNCE helper.
 
 ```python
@@ -39,9 +31,7 @@ global_positions = env.havlnce_tool._sim._human_posisions
 
 ### human_counting
 
-- Purpose: Uses GroundingDINO to count humans in the current egocentric view
-  and returns rendered images with bounding boxes. Unlike the simulator-state
-  fields above, this detector processes rendered RGB observations.
+- Purpose: Uses GroundingDINO to count humans in the current view and returns rendered images with bounding boxes.
 - Prerequisites:
   1. `HUMAN_COUNTING: True`
   2. Correct model weight path configured in `detector.py`

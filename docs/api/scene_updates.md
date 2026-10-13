@@ -1,6 +1,6 @@
 ## Dynamic Scene Updates
 
-Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
+Official HA-VLN repository: https://github.com/JostarXiong/HA-VLN
 
 The dynamic scene is driven by a child-thread clock. This module provides APIs for timeline synchronization, forced frame jumps, and NavMesh recomputation.
 

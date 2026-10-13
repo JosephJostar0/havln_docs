@@ -1,37 +1,38 @@
-site_name: HA-VLN 2.0 Get Started
-site_description: Installation, public data, and simulator reference for HA-VLN 2.0
-site_url: https://jostarxiong.github.io/havln2-docs/
-repo_url: https://github.com/UWMILab/HA-VLN
-repo_name: UWMILab/HA-VLN
+site_name: HA-VLN Docs
+site_description: Vision-Language Navigation Documentation
+repo_url: https://github.com/JostarXiong/HA-VLN
+repo_name: JostarXiong/HA-VLN
 theme:
   name: material
   language: en
-  palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: teal
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: teal
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
+
 plugins: []
+
 markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.inlinehilite
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
-  - Start Here: index.md
-  - Set Up:
-      - Dependencies: setup/dependencies.md
-      - Installation: setup/installation.md
-      - Public Data: data.md
-  - Simulator Reference:
-      - Human State: api/human_state.md
+  - Quick Start:
+      - Dependencies: quick_start/dependencies.md
+      - Installation Steps: quick_start/installation.md
+      - Data Download: quick_start/data.md
+      - Agent Integration: quick_start/integration.md
+      - Challenge Participation: quick_start/challenge_participation.md
+  - API Document:
+      - Human State Queries: api/human_state.md
       - Dynamic Scene Updates: api/scene_updates.md
       - Collision Checks: api/collision_checks.md
+      - Evaluation Metrics: api/evaluation_metrics.md
+  - Challenge:
+      - Overview: challenge/overview.md
+      - Getting Started: challenge/getting_started.md
+      - Agent Integration: challenge/integration_guide.md
+      - Submission Format: challenge/submission_format.md
