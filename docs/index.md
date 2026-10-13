@@ -12,5 +12,5 @@ environment, public HA-R2R and HAPS 2.0 data, and simulator interfaces.
    a method or investigating simulator behavior.
 
 For RoboWorld 2026 Track 2 participation, see the
-[challenge homepage](https://roboworld2026.github.io/track2/). Challenge
+[challenge homepage](https://jostarxiong.github.io/havln-challenge-2026/). Challenge
 rules are maintained there, not in these project-level docs.
