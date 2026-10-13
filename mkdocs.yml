@@ -1,0 +1,36 @@
+site_name: HA-VLN 2.0 Get Started
+site_description: Installation, public data, and simulator reference for HA-VLN 2.0
+repo_url: https://github.com/UWMILab/HA-VLN
+repo_name: UWMILab/HA-VLN
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+plugins: []
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+nav:
+  - Start Here: index.md
+  - Set Up:
+      - Dependencies: setup/dependencies.md
+      - Installation: setup/installation.md
+      - Public Data: data.md
+  - Simulator Reference:
+      - Human State: api/human_state.md
+      - Dynamic Scene Updates: api/scene_updates.md
+      - Collision Checks: api/collision_checks.md
