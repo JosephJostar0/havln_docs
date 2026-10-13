@@ -11,6 +11,4 @@ environment, public HA-R2R and HAPS 2.0 data, and simulator interfaces.
 3. Consult the [simulator API reference](api/human_state.md) when integrating
    a method or investigating simulator behavior.
 
-For RoboWorld 2026 Track 2 participation, see the
-[challenge homepage](https://jostarxiong.github.io/havln-challenge-2026/). Challenge
-rules are maintained there, not in these project-level docs.
+This is project-level documentation, not a challenge rules or submission guide.

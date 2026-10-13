@@ -1,5 +1,6 @@
 site_name: HA-VLN 2.0 Get Started
 site_description: Installation, public data, and simulator reference for HA-VLN 2.0
+site_url: https://jostarxiong.github.io/havln2-docs/
 repo_url: https://github.com/UWMILab/HA-VLN
 repo_name: UWMILab/HA-VLN
 theme:
