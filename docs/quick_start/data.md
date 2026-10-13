@@ -52,7 +52,7 @@ Verify that scene meshes reside at `Data/scene_datasets/mp3d/<scan>/<scan>.glb`.
 
 Simulation assets (HAPS 2.0 dynamic human motion models, HA-R2R episodes, and baseline weights) are officially hosted on [**Hugging Face (fly1113/HA-VLN)**](https://huggingface.co/datasets/fly1113/HA-VLN). Multi-human placement metadata (`human_motion.json`) and collision evaluation baselines are fetched from the repository.
 
-### Option A: Official Downloader Script (Recommended)
+### Source 1: Hugging Face Hub (Recommended)
 
 The verified downloader automatically fetches all assets, unzips and normalizes HAPS 2.0 meshes, and retrieves collision baselines and human annotations:
 
@@ -60,17 +60,9 @@ The verified downloader automatically fetches all assets, unzips and normalizes 
 python scripts/download_hf.py --destination Data --target all
 ```
 
-### Option B: Helper Shell Script (Google Drive Mirror)
-
-```bash
-pip install gdown
-bash scripts/download_data.sh
-```
-
-> [!NOTE]
-> The `--destination` and `--dry-run` CLI options belong to the **challenge toolkit** (`roboworld2026-track2/scripts/download_data.sh`), which supports dry-run inspection before downloading challenge assets (`bash scripts/download_data.sh --destination /path/to/Data --dry-run`). In the core `HA-VLN` repository, `scripts/download_data.sh` downloads directly into `Data/` via Google Drive without command-line flags; use `python scripts/download_hf.py --destination Data --target all` for configurable command-line downloading.
-
-### Option C: Manual Hugging Face Hub CLI
+<details>
+<summary><b>Manual Hugging Face CLI Download</b></summary>
+<br>
 
 ```bash
 pip install huggingface-hub
@@ -78,6 +70,21 @@ hf download fly1113/HA-VLN --repo-type dataset --local-dir Data
 ```
 
 *Note: Raw HF Hub download leaves `HAPS2_0.zip` unextracted. If using this option, you must manually unpack `HAPS2_0.zip` (flattening `human_motion_glbs_v3` into `Data/HAPS2_0`), and retrieve `Multi-Human-Annotations/human_motion.json` and `Data/HA-R2R-tools/collision_num_val_*.json` from the repository.*
+</details>
+
+### Source 2: Google Drive (Legacy Compatibility)
+
+<details>
+<summary><b>Google Drive Mirror (Legacy Fallback)</b></summary>
+<br>
+
+```bash
+pip install gdown
+bash scripts/download_data.sh
+```
+
+*Note: Google Drive mirror is maintained strictly for backward compatibility. For reproducible downloads with checksum verification and automated HAPS 2.0 extraction, use the Hugging Face source above.*
+</details>
 
 ---
 

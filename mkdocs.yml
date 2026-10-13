@@ -5,6 +5,24 @@ repo_name: UWMILab/HA-VLN
 theme:
   name: material
   language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins: []
 
@@ -25,14 +43,8 @@ nav:
       - Installation Steps: quick_start/installation.md
       - Data Download: quick_start/data.md
       - Agent Integration: quick_start/integration.md
-      - Challenge Participation: quick_start/challenge_participation.md
   - API Document:
       - Human State Queries: api/human_state.md
       - Dynamic Scene Updates: api/scene_updates.md
       - Collision Checks: api/collision_checks.md
       - Evaluation Metrics: api/evaluation_metrics.md
-  - Challenge:
-      - Overview: challenge/overview.md
-      - Getting Started: challenge/getting_started.md
-      - Agent Integration: challenge/integration_guide.md
-      - Submission Format: challenge/submission_format.md

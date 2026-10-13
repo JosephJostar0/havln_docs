@@ -1,8 +1,8 @@
-# Evaluation Metrics & Challenge Score
+# Evaluation Metrics & Composite Score
 
 Official HA-VLN repository: https://github.com/UWMILab/HA-VLN
 
-This document explains the evaluation metrics used in the HA-VLN benchmark and the official scoring formula used in the RoboWorld 2026 Track 2 Challenge.
+This document explains the evaluation metrics used in the HA-VLN benchmark and the multi-objective scoring formula.
 
 ---
 
@@ -14,7 +14,7 @@ HA-VLN evaluates agents on both navigation task completion and social safety in 
 
 - **Definition**: Percentage of episodes completed successfully.
 - **Goal Criterion**: The agent terminates navigation (`STOP`) within a 3.0-meter radius of the target goal location.
-- **Challenge Strict Criterion**: In challenge replay evaluation, an episode is strictly successful if the goal criterion is met AND zero collisions with dynamic humans occurred ($s_i \mathbf{1}[e_i = 0]$).
+- **Strict Success Criterion**: In strict evaluation, an episode is successful if the goal criterion is met AND zero collisions with dynamic humans occurred ($s_i \mathbf{1}[e_i = 0]$).
 - **Optimization**: Higher is better ($\max = 1.0$ or $100\%$).
 
 ### Navigation Error (NE)
@@ -44,9 +44,9 @@ HA-VLN evaluates agents on both navigation task completion and social safety in 
 
 ---
 
-## 2. Official Challenge Composite Score
+## 2. Multi-Objective Composite Score
 
-The RoboWorld 2026 Track 2 (HA-VLN) Challenge uses an official multi-objective **Composite Score** that balances goal navigation and human safety:
+To comprehensively evaluate embodied agents across navigation effectiveness and human safety, HA-VLN adopts a multi-objective **Composite Score**:
 
 ### Sub-Score Formulations
 
@@ -66,32 +66,26 @@ $$
 $$
 
 - **Range**: $0.0 \le \mathrm{Score} \le 100.0$.
-- **Leaderboard Ranking**: Submissions are ranked primarily by **Score** (descending).
-- **Tie-Breaking Order**:
-  1. Higher Success Rate ($\mathrm{SR}$)
-  2. Lower Navigation Error ($\mathrm{NE}$)
-  3. Lower Collision Rate ($\mathrm{CR}$)
-  4. Lower Total Collision Rate ($\mathrm{TCR}$)
-  5. Earlier submission timestamp
+- **Evaluation Ranking**: Models are evaluated and ranked primarily by **Composite Score** (descending), followed by individual component metrics ($\mathrm{SR}$, $\mathrm{NE}$, $\mathrm{CR}$, $\mathrm{TCR}$).
 
 ---
 
 ## 3. Baseline Validation Benchmark (HA-VLN-CMA)
 
-Organizer re-evaluation of the public CMA validation checkpoint produced:
+Validation benchmark evaluations of the public CMA checkpoint produced:
 
 | Split | SR ↑ | NE (m) ↓ | CR ↓ | TCR ↓ | Score ↑ |
 |---|---|---|---|---|---|
 | `val_seen` | 0.165 | 6.230 | 0.638 | 13.271 | 15.469585 |
 | `val_unseen` | 0.114 | 6.502 | 0.689 | 22.352 | 11.944822 |
 
-*Note: Score is calculated from unrounded metrics; displayed component metrics are rounded. Values may differ slightly from other reported CMA runs because of checkpoint, runtime, or evaluation details. See the participant starter kit documentation for replication instructions.*
+*Note: Score is calculated from unrounded metrics; displayed component metrics are rounded. Values may differ slightly from other reported CMA runs because of checkpoint, runtime, or evaluation details.*
 
 ---
 
-## 4. References & Documentation
+## 4. Related Guides & References
 
-- [RoboWorld 2026 Track 2 CodaBench](https://www.codabench.org/competitions/18135/)
-- [Challenge Overview](../challenge/overview.md)
-- [Submission Format Specification](../challenge/submission_format.md)
 - [HA-VLN GitHub Repository](https://github.com/UWMILab/HA-VLN)
+- [Environment Setup & Installation](../quick_start/installation.md)
+- [Dataset Download & Preparation](../quick_start/data.md)
+- [Agent Integration](../quick_start/integration.md)

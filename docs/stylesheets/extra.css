@@ -1,0 +1,4 @@
+/* Hide inaccurate dynamic repo star/fork counters fetched via client-side GitHub API */
+.md-source__facts {
+  display: none !important;
+}
